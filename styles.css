@@ -1,42 +1,69 @@
+/* Apply a soft pastel background with a fun, lively vibe */
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #F8E0D6;
+  font-family: 'Poppins', sans-serif; /* Modern, friendly font */
+  background-color: #F8E0D6;  /* Soft pastel pink */
   color: #333;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header {
-  background-color: #E91E63;
-  color: white;
-  padding: 20px;
+/* Header Styling */
+h1 {
   text-align: center;
-  font-weight: 600;
+  color: #E91E63;  /* Barbie Pink */
+  font-size: 36px;
+  font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  margin-top: 40px;
+}
+
+/* Navigation Styling */
+nav {
+  text-align: center;
+  margin-top: 20px;
 }
 
 nav a {
-  margin: 0 15px;
-  color: white;
+  margin: 0 20px;
+  color: #fff;
   text-decoration: none;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
-  transition: 0.3s;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: #E91E63; /* Barbie Pink */
+  transition: 0.3s ease;
 }
 
 nav a:hover {
-  text-decoration: underline;
-  font-weight: 600;
+  background-color: #FF4081; /* Slightly lighter pink */
+  color: white;
+  transform: scale(1.05);
 }
 
+/* Section Styling */
 section {
   padding: 40px 20px;
   text-align: center;
 }
 
+h2, h3 {
+  color: #E91E63;  /* Barbie Pink */
+  font-weight: 600;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Button Styling */
 .button {
-  background-color: #FFC107;
+  background-color: #FFC107; /* Bright yellow accent */
   color: white;
   padding: 15px 30px;
   border: none;
@@ -44,17 +71,18 @@ section {
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .button:hover {
-  background-color: #FF9800;
+  background-color: #FF9800; /* Slightly darker yellow-orange */
   transform: scale(1.05);
 }
 
+/* Footer Styling */
 footer {
-  background-color: #E91E63;
+  background-color: #E91E63; /* Barbie Pink */
   color: white;
   text-align: center;
   padding: 15px;
@@ -69,6 +97,7 @@ footer p {
   font-weight: 300;
 }
 
+/* Extra spacing for sections */
 section + section {
   margin-top: 30px;
 }
