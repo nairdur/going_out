@@ -1,6 +1,7 @@
-/* Example style.css file */
+/* styles.css */
+
 body {
-  font-family: 'Poppins', sans-serif; /* Ensure you have linked the font */
+  font-family: 'Poppins', sans-serif;
   background-color: #F8E0D6;
   color: #333;
   margin: 0;
@@ -13,6 +14,11 @@ h1 {
   color: #E91E63;
   font-size: 36px;
   font-weight: bold;
+}
+
+nav {
+  text-align: center;
+  margin-top: 20px;
 }
 
 nav a {
@@ -32,4 +38,24 @@ nav a:hover {
   transform: scale(1.05);
 }
 
-/* More styles... */
+button.button {
+  background-color: #FF4081;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.button:hover {
+  background-color: #E91E63;
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  margin-top: 40px;
+}
