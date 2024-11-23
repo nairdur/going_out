@@ -1,28 +1,18 @@
-/* Apply a soft pastel background with a fun, lively vibe */
+/* Example style.css file */
 body {
-  font-family: 'Poppins', sans-serif; /* Modern, friendly font */
-  background-color: #F8E0D6;  /* Soft pastel pink */
+  font-family: 'Poppins', sans-serif; /* Ensure you have linked the font */
+  background-color: #F8E0D6;
   color: #333;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Header Styling */
 h1 {
   text-align: center;
-  color: #E91E63;  /* Barbie Pink */
+  color: #E91E63;
   font-size: 36px;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-top: 40px;
-}
-
-/* Navigation Styling */
-nav {
-  text-align: center;
-  margin-top: 20px;
 }
 
 nav a {
@@ -30,74 +20,16 @@ nav a {
   color: #fff;
   text-decoration: none;
   font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
+  background-color: #E91E63;
   padding: 10px 20px;
   border-radius: 25px;
-  background-color: #E91E63; /* Barbie Pink */
   transition: 0.3s ease;
 }
 
 nav a:hover {
-  background-color: #FF4081; /* Slightly lighter pink */
+  background-color: #FF4081;
   color: white;
   transform: scale(1.05);
 }
 
-/* Section Styling */
-section {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-h2, h3 {
-  color: #E91E63;  /* Barbie Pink */
-  font-weight: 600;
-}
-
-p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #333;
-}
-
-/* Button Styling */
-.button {
-  background-color: #FFC107; /* Bright yellow accent */
-  color: white;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 30px;
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.button:hover {
-  background-color: #FF9800; /* Slightly darker yellow-orange */
-  transform: scale(1.05);
-}
-
-/* Footer Styling */
-footer {
-  background-color: #E91E63; /* Barbie Pink */
-  color: white;
-  text-align: center;
-  padding: 15px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  font-size: 14px;
-}
-
-footer p {
-  margin: 0;
-  font-weight: 300;
-}
-
-/* Extra spacing for sections */
-section + section {
-  margin-top: 30px;
-}
+/* More styles... */
