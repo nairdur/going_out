@@ -4,5 +4,5 @@ plugins:
 title: Going Out
 description: An Exploratory Analysis of What Factors Affect Power Outages
 github:
-  zip_url: http://going_out.com/
+  zip_url: http://going_out.com/download.zip
   another_url: another value
