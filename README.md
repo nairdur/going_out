@@ -1,7 +1,7 @@
 ## Introduction:
 
 This project analyzes various features related to power outages to identify key factors influencing their duration. Using statistical analysis we uncover patterns in outage duration and propose predictive models to keep people informed and prepared for the durations of outages. We are focusing on one question in specific: 
-> What factors contribute to the duration of a power outage?
+> **What factors contribute to the duration of a power outage?**
 
 The dataset we are working with has 1534 rows and 58 columns, but while we looked at a lot of these columns to figure out which ones were most important to answering our question, we ended up finalizing a couple columns that we couldn't do our analysis without: `OUTAGE.DURATION`, `OUTAGE.START`, `OUTAGE.RESTORATION`, `NERC.REGION`, `CAUSE.CATEGORY`, and `CLIMATE.CATEGORY`. 
 
