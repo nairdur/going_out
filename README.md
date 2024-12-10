@@ -78,6 +78,6 @@ Kristina Nguyen
 Durga Nair
 
 
-**Sources**
+**Sources
 
 ...
