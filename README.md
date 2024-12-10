@@ -72,7 +72,7 @@ At a significance level of 0.05, the null hypothesis is failed to be rejected an
 
 Visual
 
-# Authors
+### Authors
 
 Kristina Nguyen
 
