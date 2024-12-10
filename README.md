@@ -1,5 +1,6 @@
 Project Title: "Going Out: Decoding Power Restoration Times"
-Introduction
+
+Introduction:
 What factors contribute to the duration of a power outage?
 This project analyzes various features related to power outages to identify key factors influencing their duration. Using statistical analysis and machine learning, we uncover patterns in outage duration and propose predictive models to improve response times.
 
