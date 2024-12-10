@@ -12,7 +12,7 @@ The dataset we are working with has 1534 rows and 58 columns, but while we looke
 
 **Data Cleaning:**
 
-Data was preprocessed to combine data and time fields for outage start and restoration times. **is this a datetime var prior to this?**
+Data was preprocessed to combine data and time fields for outage start and restoration times. 
 
 
 **Exploratory Analysis:**
