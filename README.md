@@ -1,4 +1,4 @@
-Introduction:
+## Introduction:
 
 What factors contribute to the duration of a power outage?
 
