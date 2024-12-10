@@ -69,7 +69,7 @@ Performance Comparison: ...
 
 Key Question: Is the model fair across different groups?
 
-<Visual>
+Visual
 
 **Authors**
 
