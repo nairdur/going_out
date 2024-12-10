@@ -6,7 +6,7 @@ This project analyzes various features related to power outages to identify key 
 The dataset we are working with has 1534 rows and 58 columns, but while we looked at a lot of these columns to figure out which ones were most important to answering our question, we ended up finalizing a couple columns that we couldn't do our analysis without: `OUTAGE.DURATION`, `OUTAGE.START`, `OUTAGE.RESTORATION`, `NERC.REGION`, `CAUSE.CATEGORY`, and `CLIMATE.CATEGORY`. 
 
 
-**Data Cleaning and Exploratory Data Analysis**
+## Data Cleaning and Exploratory Data Analysis
 
 Data Cleaning:
 
@@ -24,7 +24,7 @@ Distribution of outage durations.
 
 Trends over time or location.
 
-**Assessment of Missingness**
+## Assessment of Missingness
 
 Analyze missing data and its potential bias.
 
@@ -34,14 +34,14 @@ Types of Missingness: MCAR, MAR, NMAR?
 Impact on Analysis: 
 
 
-**Hypothesis Testing**
+## Hypothesis Testing
 
 ...
 
 Summarize the statistical test used (e.g., t-tests, chi-squared tests), the results, and whether the hypothesis was supported.
 
 
-**Framing a Prediction Problem**
+## Framing a Prediction Problem
 
 Goal: Predict the duration of a power outage given certain conditions.
 
@@ -50,14 +50,14 @@ Features: ...
 Target: ...
 
 
-**Baseline Model**
+## Baseline Model
 
 Model Used: ...
 
 Performance Metrics:...
 
 
-**Final Model**
+## Final Model
 
 Improved Model: ...
 
@@ -66,13 +66,13 @@ Feature Importance: ...
 Performance Comparison: ...
 
 
-**Fairness Analysis**
+## Fairness Analysis
 
 At a significance level of 0.05, the null hypothesis is failed to be rejected and the model may be fair between areas with low and high populations.
 
 Visual
 
-**Authors**
+# Authors
 
 Kristina Nguyen
 
