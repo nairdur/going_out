@@ -10,7 +10,7 @@
 This project analyzes various features related to power outages to identify key factors influencing their duration. Using statistical analysis we uncover patterns in outage duration and propose predictive models to keep people informed and prepared for the durations of outages. We are focusing on one question in specific: 
 > ### **What factors contribute to the duration of a power outage?**
 
-The dataset we are working with has 1534 rows and 58 columns, but while we looked at a lot of these columns to figure out which ones were most important to answering our question, we ended up finalizing a couple columns that we wanted to focus our exploration on: `OUTAGE.DURATION`, `NERC.REGION`, `CAUSE.CATEGORY`, and `CLIMATE.CATEGORY`. `OUTAGE.DURATION` is the time that the outage lasted in minutes, saved as an integer. *NERC* stands for North American Electric Reliability Corporation, so `NERC.REGION`s are essentially U.S. regions sectioned off by electricity supply. `CAUSE.CATEGORY` is a string that represents what caused the power outage and `CLIMATE.CATEGORY` is a string value of either 'cold', 'warm', or 'normal' based on what the climate is like in the area where the power went out.
+The dataset we are working with has 1534 rows and 58 columns, but while we looked at a lot of these columns to figure out which ones were most important to answering our question, we ended up finalizing a couple columns that we wanted to focus our exploration on: `OUTAGE.DURATION`, `NERC.REGION`, `CAUSE.CATEGORY`, and `CLIMATE.CATEGORY`. `OUTAGE.DURATION` is the time that the outage lasted in minutes, saved as an integer. *NERC* stands for North American Electric Reliability Corporation, so `NERC.REGION`s are essentially U.S. regions sectioned off by electricity supply. `CAUSE.CATEGORY` is a string that represents what caused the power outage and `CLIMATE.CATEGORY` is a string value of either 'cold', 'warm', or 'normal' based on what the climate is like in the area where the power went out. We also look at other columns when trying to fit our final model: `CUSTOMERS.AFFECTED` which is the number of people that were affected by the power outage, `TOTAL.SALES` is the total amount of energy sold across all sectors in Megawatt-hours, `PCT_WATER_TOT` is the percentage of the region's total area covered by water, `UTIL.CONTRI` which is the contribution of the utility sector to the economy, and `RES.CUST.PCT` represents the percentage of total utility customers that are residential customers.
 
 ---
 
@@ -48,7 +48,17 @@ To understand how outage duration relates to other features, we explored potenti
 
 #### **Interesting Aggregates**
 
+The below pivot table shows mean outage durations categorized by `CAUSE.CATEGORY` and `CLIMATE.CATEGORY`. The table helps identify trends in outage durations based on different causes and climate conditions. It provides insights into which combintations of factors lead to longer outages.
+
 ![Pivot Table](images/pivot_table.png)
+
+From this table we can see that:
+- Fuel Supply Emergencies: this consistently leads to the longest outages across all climate categories, with especially high mean durations in warm climates
+- Severe Weather: show increasing durations from cold to warm climates, indicating a potential impact of warming temperatures on outage duration for this cause
+- Intentional Attack and Islanding: these causes lead to shorter outages compared to others, regardless of climate, with durations mostly below 500 minutes
+- Climate Impact on Equipment Failure: these outages are significantly longer in normal climates compared to cold or warm climates, suggesting possible interactions between climate and equipment vulnerability
+- Public Appeal: outages in this category are notably longer in colder climates compared to warmer ones, potentially reflecting challenges in restoring service during cold-weather events
+- System Operability Disruption: these outages are relatively shorter, with durations under 1000 minutes across all climates
 
 ---
 
@@ -165,9 +175,9 @@ The final model represents an improvement in terms of flexibility, but the overa
 
 We chose the following groups:
 
-Group X: Outages occurring in areas with low population density
+Group X: Outages occurring in areas with low population density (less than 10M people)
 
-Group Y: Outages occurring in areas with high population density
+Group Y: Outages occurring in areas with high population density (more than 10M people)
 
 These groups were chosen to evaluate whether the model's performance is consistent across different population densities, enuring fairness in prediction quality. We used the absolute difference in mean RMSE as the evaluation metric to assess whether the model performs equally for both groups.
 
