@@ -12,14 +12,14 @@ The dataset we are working with has 1534 rows and 58 columns, but while we looke
 
 **Data Cleaning:**
 
-Data was preprocessed to combine data and time fields for outage start and restoration times. 
+Data was preprocessed to combine date and time fields for outage start and restoration times. Since we were testing the distribution of essentially every column, all of the columns had to be cleaned. Most of the data was already cleaned for us, but the main thing we had to do was clean up how the time that each outage started and ended was stored. When we started looking at the data, there were two columns for each `OUTAGE.START.DATE`, `OUTAGE.START.TIME`, `OUTAGE.RESTORATION.DATE`, and `OUTAGE.RESTORATION.TIME`. Instead of this, we combined the date and time fields in order to get `OUTAGE.START` and `OUTAGE.RESTORATION`.
 
 
 **Exploratory Analysis:**
 
 Exploratory visualizations and analyses were conducted to understand the distribution of outage durations and other variables, as well as relationships between variables. We used histograms for the numerical values, bar graphs for categorical variables, and made scatter plots of quantitative variables against outage duration. We also created box plots of outage duration conditional on categorical variables and a pivot table of mean outage durations, conditioned on climate and cause categories.
 
-![Some Text](images/1col_dist_duration.png)
+![1 Column Distribution of OUTAGE.DURATION](images/1col_dist_duration.png)
 
 
 
@@ -90,8 +90,4 @@ Visual
 
 ---
 
-### Authors
-
-Kristina Nguyen
-
-Durga Nair
+### Kristina Nguyen & Durga Nair
