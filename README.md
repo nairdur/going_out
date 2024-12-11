@@ -118,11 +118,16 @@ We chose Root Mean Squared Error (RMSE) as the metric for evaluating our regress
 RMSE provides a direct measure of how far off our predictions are, on average, from the true values. Since the larger errors in outage duration predictions could significantly impact utility response efforts, RMSE helps prioritize minimizing those larger discrepancies. Other metrics like Mean Absolute Error could also be considered, but as RMSE is more sensistive to large errors it helps us focus on reducting extreme prediction errors.
 
 To preduct outage duration, we only use features that are available at the time of prediction.
-- NERC Region: the region in which the outage occurs may influence its duration due to regional infrastructure, weather patters, and resource availability
-- Cause Category: the reason for the outage could significantly affect how long it takes to restore power
-- Climate Category: environmental factors can influence the time required to fix outages
+- NERC Region: the region in which the outage occurs may influence its duration due to regional infrastructure, weather patterns, and resource availability
+- Cause Category: the reason for the outage could significantly affect how long it takes to restore power.
+- Climate Category: environmental factors can influence the time required to fix outages.
+- Customers Affected: reflects the area magnitude of the outage, which can correlate with recovery time and overall outage duration.
+- Total Sales: the amount of energy sold or energy demand could affect the magnitude of an outage and its duration.
+- Percent Water Total: the amount of area covered by water, which may influence weather and the electric grid structure and thus outage duration.
+- Utility Contribution: the utility demand can reflect electricity demand that can affect the magnitude of an outage and its duration.
+- Residential Customer Percent: residential and business (or other) demands are different, so the proportion of consumers can affect electricity demands and thus outage magnitude/duration.
 
-This is a regression problem where we aim to predict the duration of a power outage using features such as the NERC region, cause category, and climate category. The model's performance is evalueated using RMSE, which helps us assess prediction accuracy while penalizing large errors.
+This is a regression problem where we aim to predict the duration of a power outage using the above features. The model's performance is evalueated using RMSE, which helps us assess prediction accuracy while penalizing large errors.
 
 
 
