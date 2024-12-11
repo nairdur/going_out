@@ -1,4 +1,6 @@
-## Introduction:
+# Going Out
+
+## Introduction
 
 This project analyzes various features related to power outages to identify key factors influencing their duration. Using statistical analysis we uncover patterns in outage duration and propose predictive models to keep people informed and prepared for the durations of outages. We are focusing on one question in specific: 
 > ### **What factors contribute to the duration of a power outage?**
