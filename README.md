@@ -154,11 +154,11 @@ The features selected and transformations applied were carefully chosen based on
 
 The final model includes transformed quantitative features (square root, log, and additional terms) and one-hot encoded categorical variables which allows the model to account for both linear and nonlinear effects, as well as categorical variations.
 
-The final model is a linear regression model that incorporates feature transformations and polynomial terms for flexibility. We tested a Decision Tree Regressor as an alternative, but cross-validation results showed that the linear regression model outperformed in terms of RMSE. The degree of polynomial features was tuned from 1 to 25 using cross-validation, with degree 2 providing the best balance between complexity and performance. Various transformations were tested for the quantitative features using cross-validation to determine which approach worked best for each feature. Cross-validation with 5 folds was used to evaluate the performance of different models and transformations.
+The final model is a linear regression model that incorporates feature transformations and polynomial terms for flexibility. We tested a Decision Tree Regressor as an alternative, but cross-validation results showed that the linear regression model outperformed in terms of RMSE. The degree of additional features was tuned from 1 to 25 using cross-validation, providing the best balance between complexity and performance. Various transformations were tested for the quantitative features using cross-validation to determine which approach worked best for each feature. Cross-validation with 5 folds was used to evaluate the performance of different models and transformations.
 
 #### Baseline vs Final
 
-The baseline model used simple linear regression without feature transformation or polynomial terms and had an RMSE of about 4300 minutes.
+The baseline model used simple linear regression without feature transformation or extra terms and had an RMSE of about 4300 minutes.
 
 The final model incorporates square root and log transformations for selected features, additional features, and one-hot encoding for categorical variables and the RMSE was reduced, though only by about 4 minutes.
 
