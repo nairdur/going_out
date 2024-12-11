@@ -112,7 +112,7 @@ We had a couple of hypothesis tests that we were looking at:
 
 ## Framing a Prediction Problem
 
-For this prediction problem, we decided to predict the duration of a power outage. This is a regression task based on the response variable `OUTAGE.DURATION`. The duration of a power outage is a critical factor for utility companies and affected customers, Understanding and predicting the duration can help in preparing for outagesm improving customer service, and informing resource allocation.
+For this prediction problem, we decided to predict the duration of a power outage. This is a regression task based on the response variable `OUTAGE.DURATION`. The duration of a power outage is a critical factor for utility companies and affected customers, Understanding and predicting the duration can help in preparing for outages, improving customer service, and informing resource allocation.
 
 We chose Root Mean Squared Error (RMSE) as the metric for evaluating our regression model. RMSE is the square root of the average quared differences between predicted and actual values. It is particularly useful in this context because it gives more weight to larger errors, which may be more costly or impactful when predicting outage durations.
 RMSE provides a direct measure of how far off our predictions are, on average, from the true values. Since the larger errors in outage duration predictions could significantly impact utility response efforts, RMSE helps prioritize minimizing those larger discrepancies. Other metrics like Mean Absolute Error could also be considered, but as RMSE is more sensistive to large errors it helps us focus on reducting extreme prediction errors.
