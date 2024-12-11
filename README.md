@@ -67,6 +67,10 @@ From this table we can see that:
 
 After analysing the missingness in the dataset, we determined that `OUTAGE.DURATION` could potentially be NMAR. We believe that this could be NMAR if the missing durations are more likely for extraordinatily long outages, where reporting may be deprioritized or records incomplete. In this case, the likelihood of missingness would depend on the duration itself.
 
+On the other hand, we tested `TOTAL.SALES` and found that it is MAR dependent on `CLIMATE.CATEGORY` and independent of `OUTAGE.DURATION`. We observed that the likelihood of `TOTAL.SALES` being missing is significantly dependent on the values in `CLIMATE.CATEGORY`. This suggests that certain climate conditions may be associated with missing sales data. Below is a visualization showing the distribution of `CLIMATE.CATEGORY` for rows where `TOTAL.SALES` is missing.
+
+![Missingness Relation Between Climate Category and Total Sales](images/climate_mar.png)
+
 
 
 ---
