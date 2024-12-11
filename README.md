@@ -41,6 +41,8 @@ To understand how outage duration relates to other features, we explored potenti
 
 #### **Interesting Aggregates**
 
+![Pivot Table](images/pivot_table.png)
+
 ---
 
 ## Assessment of Missingness
@@ -48,11 +50,11 @@ To understand how outage duration relates to other features, we explored potenti
 
 After analysing the missingness in the dataset, we determined that `OUTAGE.DURATION` is likely NMAR. This conclusion is based on the hypothesis testing results from a permutation test we conducted, where the p-value for the relationship between missingness in `OUTAGE.DURATION` and the feature `miss` was not statistically significant which helps us conclude that the missingness in `OUTAGE.DURATION` is not due to the missingness in other columns.
 
-![Outage Duration Missingness](image/duration_nmar.png)
+![Outage Duration Missingness](images/duration_nmar.png)
 
 On the other hand, `CLIMATE.CATEGORY` seems to be MAR with respect to `TOTAL.SALES` due to the significant p-value in the permutation test we conducted.
 
-![Climate Category Missingness](image/climate_mar.png)
+![Climate Category Missingness](images/climate_mar.png)
 
 
 
@@ -127,4 +129,4 @@ Visual
 
 ---
 
-### Kristina Nguyen & Durga Nair
+##### Kristina Nguyen & Durga Nair
