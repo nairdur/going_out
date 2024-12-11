@@ -65,13 +65,7 @@ From this table we can see that:
 ## Assessment of Missingness
 
 
-After analysing the missingness in the dataset, we determined that `OUTAGE.DURATION` is likely NMAR. This conclusion is based on the hypothesis testing results from a permutation test we conducted, where the p-value for the relationship between missingness in `OUTAGE.DURATION` and the feature `miss` was not statistically significant which helps us conclude that the missingness in `OUTAGE.DURATION` is not due to the missingness in other columns.
-
-![Outage Duration Missingness](images/duration_nmar.png)
-
-On the other hand, `CLIMATE.CATEGORY` seems to be MAR with respect to `TOTAL.SALES` due to the significant p-value in the permutation test we conducted.
-
-![Climate Category Missingness](images/climate_mar.png)
+After analysing the missingness in the dataset, we determined that `OUTAGE.DURATION` could potentially be NMAR. We believe that this could be NMAR if the missing durations are more likely for extraordinatily long outages, where reporting may be deprioritized or records incomplete. In this case, the likelihood of missingness would depend on the duration itself.
 
 
 
