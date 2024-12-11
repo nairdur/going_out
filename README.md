@@ -12,7 +12,9 @@ The dataset we are working with has 1534 rows and 58 columns, but while we looke
 
 **Data Cleaning:**
 
-Data was preprocessed to combine date and time fields for outage start and restoration times. Since we were testing the distribution of essentially every column, all of the columns had to be cleaned. Most of the data was already cleaned for us, but the main thing we had to do was clean up how the time that each outage started and ended was stored. When we started looking at the data, there were two columns for each `OUTAGE.START.DATE`, `OUTAGE.START.TIME`, `OUTAGE.RESTORATION.DATE`, and `OUTAGE.RESTORATION.TIME`. Instead of this, we combined the date and time fields in order to get `OUTAGE.START` and `OUTAGE.RESTORATION`.
+Data was preprocessed to combine date and time fields for outage start and restoration times. Since we were testing the distribution of essentially every column, all of the columns had to be cleaned. Most of the data was already cleaned for us, but the main thing we had to do was clean up how the time that each outage started and ended was stored. When we started looking at the data, there were two columns for each `OUTAGE.START.DATE`, `OUTAGE.START.TIME`, `OUTAGE.RESTORATION.DATE`, and `OUTAGE.RESTORATION.TIME`. Instead of this, we combined the date and time fields in order to get `OUTAGE.START` and `OUTAGE.RESTORATION`. Below is what the first couple rows of the data looked like:
+
+![Data Head](images/full_data_head)
 
 
 **Exploratory Analysis:**
