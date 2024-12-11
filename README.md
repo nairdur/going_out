@@ -149,18 +149,18 @@ The performance of the model was evaluated using RMSE. After trainging the model
 The features selected and transformations applied were carefully chosen based on their potential relevance to predicting power outage duration and improving the model's ability to capture underlying relationships
 - Square root transformation for `CUSTOMERS.AFFECTED`: this transformation helps reduct the skewness of the data, ensuring that large outlier values do not disproportionately affect the regression model
 - Log transformation for `TOTAL.SALES` and `PCT_WATER_TOT`: these transformations were applied to handle skewed distributions and emphasize smaller differences in lower values, which are often more predictive
-- Adding polynomidal terms of degree 2 for quantitative features (`CUSTOMERS.AFFECTED`, `TOTAL.SALES`, `PCT_WATER_TOT`, `UTIL.CONTRI`, and `RES.CUST.PCT`) allows the model to capture nonlinear relationships between these predictors and outage duration
+- Adding terms for quantitative features (`CUSTOMERS.AFFECTED`, `TOTAL.SALES`, `PCT_WATER_TOT`, `UTIL.CONTRI`, and `RES.CUST.PCT`) allows the model to capture more relationships between these predictors and outage duration
 - We still used One-Hot Encoding for categorical variables that we had before to allow the model to differentiate between the categories without assuming an ordinal relationship.
 
-The final model includes transformed quantitative features (square root, log, and polynomial terms) and one-hot encoded categorical variables which allows the model to account for both linear and nonlinear effects, as well as categorical variations.
+The final model includes transformed quantitative features (square root, log, and additional terms) and one-hot encoded categorical variables which allows the model to account for both linear and nonlinear effects, as well as categorical variations.
 
-The final model is a linear regression model that incorporates feature transformations and polynomial terms for flexibility. We tested a Decision Tree Regressor as an alternative, but cross-validation results showed that the linear regression model outperformed n terms of RMSE. The degree of polynomial features was tuned from 1 to 25 using cross-validation, with degree 2 providing the best balance between complexity and performance. Various transformations weere tested for the quantitative features using cross-validation to determine which approach worked best for each feature. Cross-validation with 5 folds was used to evaluate the performance of different models and transformations.
+The final model is a linear regression model that incorporates feature transformations and polynomial terms for flexibility. We tested a Decision Tree Regressor as an alternative, but cross-validation results showed that the linear regression model outperformed in terms of RMSE. The degree of polynomial features was tuned from 1 to 25 using cross-validation, with degree 2 providing the best balance between complexity and performance. Various transformations were tested for the quantitative features using cross-validation to determine which approach worked best for each feature. Cross-validation with 5 folds was used to evaluate the performance of different models and transformations.
 
 #### Baseline vs Final
 
 The baseline model used simple linear regression without feature transformation or polynomial terms and had an RMSE of about 4300 minutes.
 
-The final model incorporates square root and log transformations for selected features, polynomial features of degree 2, and one-hot encoding for categorical variables and the RMSE was reduced, though only by about 4 minutes.
+The final model incorporates square root and log transformations for selected features, additional features, and one-hot encoding for categorical variables and the RMSE was reduced, though only by about 4 minutes.
 
 
 The final model represents an improvement in terms of flexibility, but the overall performance shows that there is still much room for improvement. The high RMSE indicates that outage duration may depend on additional unobserved varibales or complex dynamics not captured by the current features.
