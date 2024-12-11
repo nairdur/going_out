@@ -72,7 +72,7 @@ We had a couple of hypothesis tests that we were looking at:
 
 
 
-##### Outage Duration Across Cause Categories
+#### OUTAGE DURATION ACROSS CAUSE CATEGORIES
 - Null Hypothesis: Outage duration is the same across all cause categories
 - Alternative Hypothesis: Outage duration is different across cause categories
 - Test Statistic: Total Variation Distance
@@ -80,7 +80,7 @@ We had a couple of hypothesis tests that we were looking at:
 - At a significance level of 0.05, the null hypothesis is rejected,suggesting that cause category may be correlated with outage duration.
 
 
-##### Outage Duration Across Climate Categories
+#### OUTAGE DURATION ACROSS CLIMATE CATEGORIES
 - Null Hypothesis: Outage duration is the same across all climate categories
 - Alternative Hypothesis: Outage duration is different across climate categories
 - Test Statistic: Total Variation Distance
