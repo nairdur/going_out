@@ -10,26 +10,34 @@ The dataset we are working with has 1534 rows and 58 columns, but while we looke
 
 ## Data Cleaning and Exploratory Data Analysis
 
-**Data Cleaning:**
+### **Data Cleaning:**
 
-Data was preprocessed to combine date and time fields for outage start and restoration times. Since we were testing the distribution of essentially every column, all of the columns had to be cleaned. Most of the data was already cleaned for us, but the main thing we had to do was clean up how the time that each outage started and ended was stored. When we started looking at the data, there were two columns for each `OUTAGE.START.DATE`, `OUTAGE.START.TIME`, `OUTAGE.RESTORATION.DATE`, and `OUTAGE.RESTORATION.TIME`. Instead of this, we combined the date and time fields in order to get `OUTAGE.START` and `OUTAGE.RESTORATION`. Below is what the first couple rows of the data looked like:
+Data was preprocessed to combine date and time fields for outage start and restoration times. Since we were testing the distribution of essentially every column, all of the columns had to be cleaned. Most of the data was already cleaned for us, but the main thing we had to do was clean up how the time that each outage started and ended was stored. When we started looking at the data, there were two columns for each `OUTAGE.START.DATE`, `OUTAGE.START.TIME`, `OUTAGE.RESTORATION.DATE`, and `OUTAGE.RESTORATION.TIME`. Instead of this, we combined the date and time fields in order to get `OUTAGE.START` and `OUTAGE.RESTORATION`. This allowed us to be more precise with the data and allow us to not just look at date and time separately. Below is what the first couple rows of the data looked like:
 
 ![Data Head](images/full_data_head.png)
 
 
-**Exploratory Analysis:**
+### **Exploratory Analysis:**
 
 Exploratory visualizations and analyses were conducted to understand the distribution of outage durations and other variables, as well as relationships between variables. We used histograms for the numerical values, bar graphs for categorical variables, and made scatter plots of quantitative variables against outage duration. We also created box plots of outage duration conditional on categorical variables and a pivot table of mean outage durations, conditioned on climate and cause categories.
 
+**Univariate Analysis**
+
+We examined the distribution of individual columns first to better understand how each feature varied across the dataset. This analysis helps identify patterns, outliers, and the overall spread of the data, giving us insights into the individual characteristics of each feature. Below is a visualization showing the distribution of `OUTAGE.DURATION`. The plot reveals that the data is skewed to the right suggesting that the majority of the outage durations are relatively short and are typically shorter than 5000 minutes, though there are a few instances where the outage lasted much longer than the average.
+
 ![1 Column Distribution of OUTAGE.DURATION](images/1col_dist_duration.png)
 
+We also looked at the distribution of categorical data such as `CAUSE.CATEGORY`, which showed us that the majority of power outages seemed to be caused by severe weather. 
+
+![1 Column Distribution of CAUSE.CATEGORY](images/1col_dist_cause.png)
 
 
-Frequency of outages by cause (e.g., storms, equipment failure).
 
-Distribution of outage durations.
+**Bivariate Analysis**
 
-Trends over time or location.
+To understand how outage duration relates to other features, we explored potential correlations and trends between the `OUTAGE.DURATION` column and other columns such as `CUSTOMERS.AFFECTED`. The below scatter plot displays this relationship, which shows that there is not much of a correlation other than that short popwer outages that didn't affect many people were common.
+
+![Customers Affected vs Outage Duration](images/duration_vs_affected.png)
 
 ---
 
