@@ -10,7 +10,7 @@ The dataset we are working with has 1534 rows and 58 columns, but while we looke
 
 ## Data Cleaning and Exploratory Data Analysis
 
-### **Data Cleaning:**
+#### **Data Cleaning:**
 
 Data was preprocessed to combine date and time fields for outage start and restoration times. Since we were testing the distribution of essentially every column, all of the columns had to be cleaned. Most of the data was already cleaned for us, but the main thing we had to do was clean up how the time that each outage started and ended was stored. When we started looking at the data, there were two columns for each `OUTAGE.START.DATE`, `OUTAGE.START.TIME`, `OUTAGE.RESTORATION.DATE`, and `OUTAGE.RESTORATION.TIME`. Instead of this, we combined the date and time fields in order to get `OUTAGE.START` and `OUTAGE.RESTORATION`. This allowed us to be more precise with the data and allow us to not just look at date and time separately. Below is what the first couple rows of the data looked like:
 
@@ -63,7 +63,7 @@ On the other hand, `CLIMATE.CATEGORY` seems to be MAR with respect to `TOTAL.SAL
 
 We had a couple of hypothesis tests that we were looking at:
 
-##### Outage Duration Across NERC Region
+#### OUTAGE DURATION ACROSS NERC REGION
 - Null Hypothesis: Outage duration is the same across all NERC regions
 - Alternative Hypothesis: Outage duration is different across NERC regions
 - Test Statistic: Total Variation Distance
