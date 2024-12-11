@@ -65,6 +65,8 @@ On the other hand, `CLIMATE.CATEGORY` seems to be MAR with respect to `TOTAL.SAL
 
 We had a couple of hypothesis tests that we were looking at:
 
+
+
 #### OUTAGE DURATION ACROSS NERC REGION
 - Null Hypothesis: Outage duration is the same across all NERC regions
 - Alternative Hypothesis: Outage duration is different across NERC regions
@@ -82,6 +84,7 @@ We had a couple of hypothesis tests that we were looking at:
 - At a significance level of 0.05, the null hypothesis is rejected,suggesting that cause category may be correlated with outage duration.
 
 
+
 #### OUTAGE DURATION ACROSS CLIMATE CATEGORIES
 - Null Hypothesis: Outage duration is the same across all climate categories
 - Alternative Hypothesis: Outage duration is different across climate categories
@@ -94,38 +97,81 @@ We had a couple of hypothesis tests that we were looking at:
 
 ## Framing a Prediction Problem
 
-Goal: Predict the duration of a power outage given certain conditions.
+For this prediction problem, we decided to predict the duration of a power outage. This is a regression task based on the response variable `OUTAGE.DURATION`. The duration of a power outage is a critical factor for utility companies and affected customers, Understanding and predicting the duration can help in preparing for outagesm improving customer service, and informing resource allocation.
 
-Features: ...
+We chose Root Mean Squared Error (RMSE) as the metric for evaluating our regression model. RMSE is the square root of the average quared differences between predicted and actual values. It is particularly useful in this context because it gives more weight to larger errors, which may be more costly or impactful when predicting outage durations.
+RMSE provides a direct measure of how far off our predictions are, on average, from the true values. Since the larger errors in outage duration predictions could significantly impact utility response efforts, RMSE helps prioritize minimizing those larger discrepancies. Other metrics like Mean Absolute Error could also be considered, but as RMSE is more sensistive to large errors it helps us focus on reducting extreme prediction errors.
 
-Target: ...
+To preduct outage duration, we only use features that are available at the time of prediction.
+- NERC Region: the region in which the outage occurs may influence its duration due to regional infrastructure, weather patters, and resource availability
+- Cause Category: the reason for the outage could significantly affect how long it takes to restore power
+- Climate Category: environmental factors can influence the time required to fix outages
+
+This is a regression problem where we aim to predict the duration of a power outage using features such as the NERC region, cause category, and climate category. The model's performance is evalueated using RMSE, which helps us assess prediction accuracy while penalizing large errors.
+
+
 
 ---
 
 
 ## Baseline Model
 
-Model Used: ...
+We built a linear regression model to predict the duration of a power outage. The model was trained using the features listed above that are available at the time of prediction: `NERC.REGION`, `CAUSE.CATEGORY`, and `CLIMATE.CATEGORY`, all of which are nominal variables. For these features, we applied One-Hot Encoding to create new binary features for each category within the variables. For example, there are 13 possible regions in `NERC.REGION`, so 13 binary columns are created.
 
-Performance Metrics:...
+We used a pipeline from `sklearn` to first apply One-Hot Encoding to the categorical features and then perform linear regression on the transformed dataset. The pipeline ensures that data preprocessing and model training are handled sequentially and consistently.
+
+The performance of the model was evaluated using RMSE. After trainging the model on the training set and making predictions on the test set, we foud that the RMSE was around 4300, which indicates that the model has significant prediction error. Given this high RMSE, the model's performance is cosidered **poor**. This suggests that our model is not accurately predicting the duration of power outages. This could be due to several problems:
+- Complexity of the problem: outage duration can be affected by many complex, often unobservable factors such as real-time repair operations, weather conditions, and infrastructure status.
+- Feature selection: the features chosen for the model may not fully capture the dynamics of power outages. We might need additional or more refined features to improve the model
+- Model choice: a simple linear regression model may not be powerful enough to capture the relationships between the features and the target variable. More complex models, such as decision trees or random forests might perform better
+
+
 
 ---
 
 ## Final Model
 
-Improved Model: ...
+The features selected and transformations applied were carefully chosen based on their potential relevance to predicting power outage duration and improving the model's ability to capture underlying relationships
+- Square root transformation for `CUSTOMERS.AFFECTED`: this transformation helps reduct the skewness of the data, ensuring that large outlier values do not disproportionately affect the regression model
+- Log transformation for `TOTAL.SALES` and `PCT_WATER_TOT`: these transformations were applied to handle skewed distributions and emphasize smaller differences in lower values, which are often more predictive
+- Adding polynomidal terms of degree 2 for quantitative features (`CUSTOMERS.AFFECTED`, `TOTAL.SALES`, `PCT_WATER_TOT`, `UTIL.CONTRI`, and `RES.CUST.PCT`) allows the model to capture nonlinear relationships between these predictors and outage duration
+- We still used One-Hot Encoding for categorical variables that we had before to allow the model to differentiate between the categories without assuming an ordinal relationship.
 
-Feature Importance: ...
+The final model includes transformed quantitative features (square root, log, and polynomial terms) and one-hot encoded categorical variables which allows the model to account for both linear and nonlinear effects, as well as categorical variations.
 
-Performance Comparison: ...
+The final model is a linear regression model that incorporates feature transformations and polynomial terms for flexibility. We tested a Decision Tree Regressor as an alternative, but cross-validation results showed that the linear regression model outperformed n terms of RMSE. The degree of polynomial features was tuned from 1 to 25 using cross-validation, with degree 2 providing the best balance between complexity and performance. Various transformations weere tested for the quantitative features using cross-validation to determine which approach worked best for each feature. Cross-validation with 5 folds was used to evaluate the performance of different models and transformations.
+
+#### Baseline vs Final
+
+The baseline model used simple linear regression without feature transformation or polynomial terms and had an RMSE of about 4300 minutes.
+
+The final model incorporates square root and log transformations for selected features, polynomial features of degree 2, and one-hot encoding for categorical variables and the RMSE was reduced, though only by about 4 minutes.
+
+
+The final model represents an improvement in terms of flexibility, but the overall performance shows that there is still much room for improvement. The high RMSE indicates that outage duration may depend on additional unobserved varibales or complex dynamics not captured by the current features.
+
+
 
 ---
 
 ## Fairness Analysis
 
-At a significance level of 0.05, the null hypothesis is failed to be rejected and the model may be fair between areas with low and high populations.
+We chose the following groups:
 
-Visual
+Group X: Outages occurring in areas with low population density
+
+Group Y: Outages occurring in areas with high population density
+
+These groups were chosen to evaluate whether the model's performance is consistent across different population densities, enuring fairness in prediction quality. We used the absolute difference in mean RMSE as the evaluation metric to assess whether the model performs equally for both groups.
+
+- Null Hypothesis: the model performs equally across areas with low and high population density, with no significant difference in RMSE.
+- Alternative Hypothesis: the model performs differently in areas with low and high population density, with significant differences in RMSE.
+
+A permutation test was performed to compute the p-value. This allowed us to assess whether the observed difference in mean RMSE is due to chance. The final results were in the form of the absolute difference in mean RMSE as our observed test statistic and a p-value equal to the proportiion of permuted test statistics that exceeded the observed statistic.
+
+
+
+At a significance level of 0.05, the null hypothesis is failed to be rejected. This indicates that there is no statistically significant difference in RMSE between areas with low and high population density. Therefore, the model may be considered fair in its performance across these groups.
 
 ---
 
